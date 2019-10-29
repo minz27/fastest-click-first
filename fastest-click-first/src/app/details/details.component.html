@@ -8,19 +8,19 @@
 <div class="container">
     <div class="row">
         <div class="col-6">
-            <app-click-zero [broadcastData] = "currentBlock"></app-click-zero>
+            <app-click-zero [broadcastData] = "currentBlock" (childEvent) = "updateScore($event)"></app-click-zero>
         </div>
         <div class="col-6">
-            <app-click-one [broadcastData] = "currentBlock"></app-click-one>
+            <app-click-one [broadcastData] = "currentBlock" (childEvent) = "updateScore($event)"></app-click-one>
         </div>
     </div>
     <br/>
     <div class="row">
         <div class="col-6">
-            <app-click-two [broadcastData] = "currentBlock"></app-click-two>
+            <app-click-two [broadcastData] = "currentBlock" (childEvent) = "updateScore($event)"></app-click-two>
         </div>
         <div class="col-6">
-            <app-click-three [broadcastData] = "currentBlock"></app-click-three>
+            <app-click-three [broadcastData] = "currentBlock" (childEvent) = "updateScore($event)"></app-click-three>
         </div>
     </div>
 </div>

@@ -45,4 +45,8 @@ export class DetailsComponent implements OnInit {
     },500)
   }
 
+  updateScore(addScore){
+    this.score += parseInt(addScore);
+  }
+
 }

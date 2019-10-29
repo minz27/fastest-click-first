@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-click-three',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ClickThreeComponent implements OnInit {
 
   @Input('broadcastData') currentBlock: number;
+  @Output() public childEvent = new EventEmitter();
   
   constructor() { }
 
@@ -19,6 +20,13 @@ export class ClickThreeComponent implements OnInit {
       return true;
     }else{
       return false;
+    }
+  }
+  changeScore(){
+    if(this.currentBlock == 3){
+      this.childEvent.emit("10");
+    }else{
+      return this.childEvent.emit("-5");
     }
   }
 

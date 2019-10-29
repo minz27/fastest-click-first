@@ -1,1 +1,1 @@
-<div class="box current" [class.current]="isSelectedBlock()" [class.default]="!isSelectedBlock()"></div>
+<div (click) = "changeScore()" class="box" [class.current]="isSelectedBlock()" [class.default]="!isSelectedBlock()"></div>

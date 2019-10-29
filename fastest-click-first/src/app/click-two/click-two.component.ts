@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-click-two',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ClickTwoComponent implements OnInit {
 
   @Input('broadcastData') currentBlock: number;
+  @Output() public childEvent = new EventEmitter();
 
   constructor() { }
 
@@ -19,6 +20,14 @@ export class ClickTwoComponent implements OnInit {
       return true;
     }else{
       return false;
+    }
+  }
+
+  changeScore(){
+    if(this.currentBlock == 2){
+      this.childEvent.emit("10");
+    }else{
+      return this.childEvent.emit("-5");
     }
   }
 }

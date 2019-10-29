@@ -1,0 +1,21 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    container_name: mongodb
+    network_mode: host
+
+  spring:
+    image: docker-leaderboard
+    build: leaderboard/
+    restart: always
+    network_mode: host
+    container_name: leaderboard-API
+    depends_on:
+      - mongodb
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080"

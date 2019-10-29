@@ -1,0 +1,9 @@
+.box{
+    height: 200px;
+}
+.current{
+    background-color: green;
+}
+.default{
+    background-color: teal;
+}

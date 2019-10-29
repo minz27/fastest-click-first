@@ -1,0 +1,29 @@
+<div class="jumbotron">
+    <h2 class="text-center">{{remainingTime}} seconds left</h2>
+    <div class="text-center">
+        <button class="btn btn-primary" (click) = "startTimer()">Start Game</button>
+    </div>
+</div>    
+<!-- Insert click-components here -->
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <app-click-zero [broadcastData] = "currentBlock"></app-click-zero>
+        </div>
+        <div class="col-6">
+            <app-click-one [broadcastData] = "currentBlock"></app-click-one>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="col-6">
+            <app-click-two [broadcastData] = "currentBlock"></app-click-two>
+        </div>
+        <div class="col-6">
+            <app-click-three [broadcastData] = "currentBlock"></app-click-three>
+        </div>
+    </div>
+</div>
+<div class="jumbotron">
+    <h2 class="text-center">Current Score: {{score}}</h2>
+</div>

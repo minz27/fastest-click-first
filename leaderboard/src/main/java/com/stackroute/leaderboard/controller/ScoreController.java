@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class ScoreController {
     @Autowired
     private ScoreService scoreService;
-
+    @CrossOrigin
     @GetMapping("/scores")
     public ResponseEntity<?> getAllScores(){
         ResponseEntity responseEntity;
@@ -24,6 +24,7 @@ public class ScoreController {
         return responseEntity;
     }
 
+    @CrossOrigin
     @PostMapping("/score")
     public ResponseEntity<?> saveScore(@RequestBody Score score){
         ResponseEntity responseEntity;

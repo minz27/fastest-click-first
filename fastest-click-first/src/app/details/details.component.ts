@@ -11,7 +11,7 @@ import { ScoreService } from '../score.service';
 })
 export class DetailsComponent implements OnInit {
   
-  public remainingTime: number = 120;
+  public remainingTime: number = 10;
   subscribeTimer: any;
   interval;
   score: number = 0;
@@ -19,12 +19,13 @@ export class DetailsComponent implements OnInit {
   secondPassed: boolean = false;
   secondPassedCounter: number = 0;
   name: string;
+  errorMessage;
   
   constructor(private router: Router, private _scoreService: ScoreService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap)=>{
-      let playerName = params.get('playerName');
+      let playerName = params.get('name');
       this.name = playerName;
     })
   }
@@ -49,8 +50,14 @@ export class DetailsComponent implements OnInit {
           this.secondPassedCounter = 1;
         }
       }else{
-        this._scoreService.saveScore(name, this.score);
-        this.router.navigate(['/leaderboard']);
+        clearInterval(this.interval);
+        console.log(this.name + ":" + this.score);
+        this._scoreService.saveScore(this.name, this.score).subscribe(
+          error => this.errorMessage = error
+        );
+        let playerScore = this.score? this.score:null;
+        this.router.navigate(['/leaderboard', {score: playerScore}]);
+        
       } 
     },500)
   }

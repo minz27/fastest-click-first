@@ -23,4 +23,8 @@ export class LandingComponent implements OnInit {
       this.router.navigate(['/play', this.playerName]);
     }
   }
+
+  goToLeaderBoard(){
+    this.router.navigate(['/leaderboard'])
+  }
 }

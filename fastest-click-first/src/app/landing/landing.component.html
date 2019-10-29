@@ -1,0 +1,12 @@
+<div class="jumbotron">
+    <h1 class="text-center">Welcome to Fastest Click First</h1>
+    <div class="text-center">
+        <label>Who are you?</label>
+        <br />
+        <input type="text" #name />
+        <br />
+        <div style="color:red">{{errorMessage}}</div>
+        <hr />
+        <button (click)="playGame(name.value)" class="btn btn-primary">Lets Play</button>
+    </div>
+</div>

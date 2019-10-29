@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { timer } from 'rxjs';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ScoreService } from '../score.service';
 
 @Component({
   selector: 'app-details',
@@ -12,14 +14,19 @@ export class DetailsComponent implements OnInit {
   public remainingTime: number = 120;
   subscribeTimer: any;
   interval;
-  public score: number = 0;
-  public currentBlock: number;
-  public secondPassed: boolean = false;
-  public secondPassedCounter: number = 0;
+  score: number = 0;
+  currentBlock: number;
+  secondPassed: boolean = false;
+  secondPassedCounter: number = 0;
+  name: string;
   
-  constructor() { }
+  constructor(private router: Router, private _scoreService: ScoreService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap)=>{
+      let playerName = params.get('playerName');
+      this.name = playerName;
+    })
   }
 
   oberserableTimer() {
@@ -41,6 +48,9 @@ export class DetailsComponent implements OnInit {
         }else{
           this.secondPassedCounter = 1;
         }
+      }else{
+        this._scoreService.saveScore(name, this.score);
+        this.router.navigate(['/leaderboard']);
       } 
     },500)
   }

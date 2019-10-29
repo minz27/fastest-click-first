@@ -4,7 +4,7 @@
 <div class="jumbotron text-center">
     <h3>Leaderboard</h3>
     <div class="list-group">
-        <button *ngFor ="let scoreItem of scores" type="button" class="list-group-item list-group-item-action">{{scoreItem.name}} : {{scoreItem.score}}</button>
+        <button *ngFor ="let scoreItem of scores" type="button" class="list-group-item list-group-item-info">{{scoreItem.name}} : {{scoreItem.score}}</button>
     </div>    
     <hr />
     <button class="btn btn-success" (click) = "goToHome()">Play Again</button>

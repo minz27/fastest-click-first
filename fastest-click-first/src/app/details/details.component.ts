@@ -56,7 +56,8 @@ export class DetailsComponent implements OnInit {
           error => this.errorMessage = error
         );
         let playerScore = this.score? this.score:null;
-        this.router.navigate(['/leaderboard', {score: playerScore}]);
+        setTimeout(()=>
+        {this.router.navigate(['/leaderboard', {score: playerScore}])},1000);
         
       } 
     },500)

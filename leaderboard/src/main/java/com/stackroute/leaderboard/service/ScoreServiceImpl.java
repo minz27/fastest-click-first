@@ -22,7 +22,7 @@ public class ScoreServiceImpl implements ScoreService{
                 return Double.compare( o2.getScore(),o1.getScore());
             }
         });
-        return scores;
+        return scores.subList(0, 10);
     }
 
     public void saveScore(Score score){

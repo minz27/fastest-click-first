@@ -19,3 +19,14 @@ services:
       - "8080:8080"
     expose:
       - "8080"
+
+  angular:
+    image: docker-fcf
+    build: fastest-click-first/
+    ports:
+      - "4200:4200"
+    container_name: fcf-container
+    network_mode: host
+    restart: always
+    command: npm start
+

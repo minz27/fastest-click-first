@@ -39,6 +39,7 @@ export class DetailsComponent implements OnInit {
   }
 
   startTimer() {
+    this.score = 0;
     this.interval = setInterval(() => {
       if(this.remainingTime > 0) {
         this.currentBlock = Math.floor((Math.random()*10)%4);
